@@ -1,0 +1,156 @@
+﻿	<script type="text/javascript">
+		function searchYouTube(search, idToAttachTo) {
+			jQTubeUtil.search(search, function (response) {
+				var html = "";
+				for (v in response.videos) {
+					var video = response.videos[v]; // this is a 'friendly' YouTubeVideo object
+					var vidlink = "https://www.youtube.com/v/" + video.videoId;
+					html += "<div class='video'><a href='" + vidlink + "'><img src='" + video.thumbs[0].url + "' width='130' height='97' /></a></div>";
+					break;
+				}
+				$('#' + idToAttachTo).prepend(html);
+			});
+		}
+
+		function item(orderid, song, artist, comments, videourl, thumburl)
+		{
+			this.order_id = orderid;
+			this.song = song;
+			this.artist = artist;
+			this.videourl = videourl;
+			this.thumburl = thumburl;
+			this.comments = comments;
+		}
+		
+		function list(items, userid, listid)
+		{
+			this.items = items;
+			this.user_id = userid;
+			this.list_id = listid;
+		}
+		
+		function guidGenerator() {
+		    var S4 = function() {
+		       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+		    };
+		    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+		}
+		
+		jQTubeUtil.init({
+			key: "AI39si6xyBKRt_Rn6aZBPAxehXspIAB5n8DtSm-T8acginlKfWyJEizJgAGtgen-tEa4cHcoIHQQ_8Hr5mTgaElaBJegEqO6kg",
+			orderby: "relevance",  // *optional -- "viewCount" is set by default
+			time: "all_time",   // *optional -- "this_month" is set by default
+			maxResults: 10   // *optional -- defined as 10 results by default
+		});
+
+		$(function () {
+
+			$.ajax({
+				type: 'GET',
+				url: "../read/@this.ViewBag.Id",
+				success: function (data) {
+					alert(JSON.stringify(data));
+				}
+			});
+
+			$("#sortable").sortable();
+
+			$("#save_button").click(function () {
+				var i = 1;
+				var items = new Array();
+				$('li').each(function (index) {
+					var song = $(this).find(".song").text().trim();
+					var artist = $(this).find(".artist").text().trim();
+					var yturl = "todo";
+					var thumburl = "todo";
+					var comments = "todo";
+					if (song.length > 0 && artist.length > 0) {
+						//TODO: save off somewhere
+						console.log(i + " " + song + " " + artist);
+						items.push(new item(i, song, artist, comments, yturl, thumburl));
+					}
+					i++;
+				});
+
+				var x = new list(items, guidGenerator(), guidGenerator());
+
+				//post this off somewhere
+				console.log(JSON.stringify(x));
+				$.ajax({
+					type: 'POST',
+					url: "lists/create",
+					data: JSON.stringify(x),
+					success: function (data) {
+						alert(JSON.stringify(data));
+					}
+				});
+
+			});
+
+			$(".remove").click(function () {
+				console.log($(this).parent().attr("id"));
+				$(this).parent().remove();
+			});
+
+			$("#incoming_thing").autocomplete({
+				source: function (request, response) {
+					$.ajax({
+						url: "http://ws.audioscrobbler.com/2.0/",
+						dataType: "jsonp",
+						data: {
+							method: "track.search",
+							track: $("#incoming_thing").val(),
+							api_key: "99b066ccfa576f61bd892cd4aef1c5df",
+							limit: "30",
+							format: "json"
+						},
+						success: function (data) {
+							response($.map(data.results.trackmatches.track, function (item) {
+								var strippedId = (item.artist + item.name).replace(/\W/g, '').toLowerCase();
+								return {
+									id: strippedId,
+									name: (item.artist + " " + item.name),
+									artist: item.artist,
+									song: item.name
+								};
+							}));
+						}
+					});
+				},
+				minLength: 2,
+				focus: function (event, ui) {
+					$("#incoming_thing").val(ui.item.name);
+					return false;
+				},
+				select: function (event, ui) {
+					$("#incoming_id").val(ui.item.id);
+					$("#sortable").append("<li class='ui-state-default' id='" + ui.item.id + "'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span> <div class='song'>" + ui.item.song + "</div><div class='artist'>" + ui.item.artist + "</div><div class='remove' onclick='remove'>-</div></li>");
+					searchYouTube(ui.item.name, ui.item.id);
+					$("#incoming_thing").val("");
+					$(".remove").click(function () {
+						$(this).parent().remove();
+					});
+					return false;
+				}
+			})
+			.data("autocomplete")._renderItem = function (ul, item) {
+				return $("<li></li>")
+					.data("item.autocomplete", item)
+					.append("<a>" + item.name + "</a>")
+					.appendTo(ul);
+			};
+		});
+	</script>
+	<div id="list">
+		<ul id="sortable">
+		</ul>
+	</div>
+	<div id="add">
+		<div id="project-label">
+			Begin typing your song (we'll try to find it):</div>
+		<input id="incoming_thing" />
+		<input type="hidden" id="incoming_id" />
+		<p id="incoming_description">
+		</p>
+	</div>
+	<input id="save_button" type="button" value="Save my list" class="btn" />

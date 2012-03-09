@@ -1,0 +1,9 @@
+C:\Solutions\Dustin\Listy\Listy\bin\Listy.dll
+C:\Solutions\Dustin\Listy\Listy\bin\Listy.pdb
+C:\Solutions\Dustin\Listy\Listy\bin\EntityFramework.dll
+C:\Solutions\Dustin\Listy\Listy\bin\EntityFramework.xml
+C:\Solutions\Dustin\Listy\Listy\obj\Debug\ResolveAssemblyReference.cache
+C:\Solutions\Dustin\Listy\Listy\obj\Debug\Listy.dll
+C:\Solutions\Dustin\Listy\Listy\obj\Debug\Listy.pdb
+C:\Solutions\Dustin\Listy\Listy\bin\Newtonsoft.Json.dll
+C:\Solutions\Dustin\Listy\Listy\bin\Norm.dll
