@@ -1,23 +1,16 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Listy.Models;
 
 namespace Listy.Controllers
 {
 	public class ListsController : Controller
 	{
-		public ActionResult Index()
-		{
-			ViewBag.Id = null;
-			return View();
-		}
-
-		public ActionResult Index2(string id)
+		public ActionResult Index(string id)
 		{
 			ViewBag.Id = id;
 			return View();
 		}
-
+		
 		public ActionResult Read(string id)
 		{
 			var model = ListyModel.LoadById(id);
