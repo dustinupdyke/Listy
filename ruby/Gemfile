@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 gem 'sinatra'
 gem 'json'
+gem 'mongo'
 
 group :development, :test do
   gem 'rack-test'
@@ -8,4 +9,5 @@ group :development, :test do
   gem 'ZenTest'
   gem 'autotest-growl'
   gem 'autotest-fsevent'
+  gem 'wirble'
 end
