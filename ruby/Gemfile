@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
-gem 'tinder'
 gem 'sinatra'
 gem 'json'
+gem 'mongo'
 
 group :development, :test do
   gem 'rack-test'
   gem 'rspec'
+  gem 'ZenTest'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
+  gem 'wirble'
 end
