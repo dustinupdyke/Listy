@@ -13,3 +13,11 @@ post '/lists/create' do
   lists = db['lists']
   lists.save(payload)
 end
+
+get '/index.htm' do
+  File.read('index.htm')
+end
+
+get '/jquery.jqtubeutil.min.js' do
+  File.read('jquery.jqtubeutil.min.js')
+end
