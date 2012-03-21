@@ -10,4 +10,5 @@ group :development, :test do
   gem 'autotest-growl'
   gem 'autotest-fsevent'
   gem 'wirble'
+  gem 'shotgun'
 end

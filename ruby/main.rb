@@ -8,10 +8,11 @@ end
 
 post '/lists/create' do
   payload = JSON.parse(request.body.read)
-  con= Mongo::Connection.new
-  db= con['listy'] 
-  lists = db['lists']
-  lists.save(payload)
+  puts payload
+#  con= Mongo::Connection.new
+#  db= con['listy'] 
+#  lists = db['lists']
+#  lists.save(payload)
 end
 
 get '/index.htm' do
