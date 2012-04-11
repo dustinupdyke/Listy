@@ -30,7 +30,8 @@ namespace Listy.Models.Domain
 				// iterate over the products
 				foreach (var listyList in repository.AsQueryable().ToList())
 				{
-					return listyList;
+					if(listyList.Id.Equals(id))
+						return listyList;
 				}
 			}
 			return null;	
