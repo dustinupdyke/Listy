@@ -47,9 +47,14 @@
 
 			$.ajax({
 				type: 'GET',
-				url: "../read/@this.ViewBag.Id",
+				url: "/lists/read/@this.ViewBag.Id",
 				success: function (data) {
-					alert(JSON.stringify(data));
+					$("#list_id").val('@this.ViewBag.Id');
+					for (d in data.Items) {
+						var item = data.Items[d];
+						addItem(item.Id, item.Artist, item.Song);
+					}
+
 				}
 			});
 
@@ -72,13 +77,18 @@
 					i++;
 				});
 
-				var x = new list(items, guidGenerator(), guidGenerator());
+				var listId = $("#list_id").val();
+				if (listId.length < 1)
+					 $("#list_id").val(guidGenerator());
+				listId = $("#list_id").val();
+
+				var x = new list(items, guidGenerator(), listId);
 
 				//post this off somewhere
 				console.log(JSON.stringify(x));
 				$.ajax({
 					type: 'POST',
-					url: "lists/create",
+					url: "/lists/create",
 					data: JSON.stringify(x),
 					success: function (data) {
 						alert(JSON.stringify(data));
@@ -140,6 +150,15 @@
 					.appendTo(ul);
 			};
 		});
+		
+		function addItem(id,artist,song) {
+			$("#incoming_id").val(id);
+			$("#sortable").append("<li class='ui-state-default' id='" + id + "'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span> <div class='song'>" + song + "</div><div class='artist'>" + artist + "</div><div class='remove' onclick='remove'>-</div></li>");
+			searchYouTube(song, id);
+			$(".remove").click(function () {
+				$(this).parent().remove();
+			});
+		}
 	</script>
 	<div id="list">
 		<ul id="sortable">
@@ -154,3 +173,4 @@
 		</p>
 	</div>
 	<input id="save_button" type="button" value="Save my list" class="btn" />
+	<input type="hidden" id="list_id" />
