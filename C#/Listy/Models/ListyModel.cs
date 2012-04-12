@@ -25,6 +25,8 @@ namespace Listy.Models
 
 			list.Save();
 
+			ApplicationDetails.ListId = list.Id;
+
 			return list;
 		}
 

@@ -8,6 +8,11 @@ namespace Listy.Controllers
 		public ActionResult Index(string id)
 		{
 			ViewBag.Id = id;
+
+			if (string.IsNullOrEmpty(id))
+				if (!string.IsNullOrEmpty(ApplicationDetails.ListId))
+					return Redirect(string.Format("/lists/index/{0}", ApplicationDetails.ListId));
+			
 			return View();
 		}
 		

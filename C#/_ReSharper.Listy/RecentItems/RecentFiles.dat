@@ -1,16 +1,17 @@
 ﻿<RecentFiles>
   <RecentFiles>
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:start.htm" caret="256" fromTop="9" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/d:Domain/f:ListyList.cs" caret="0" fromTop="0" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Controllers/f:ListsController.cs" caret="378" fromTop="19" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:ListyModel.cs" caret="0" fromTop="0" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:MongoDbSettings.cs" caret="0" fromTop="0" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="680" fromTop="14" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Global.asax.cs" caret="0" fromTop="0" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:MongoDbSettings.cs" caret="1261" fromTop="42" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Controllers/f:ListsController.cs" caret="267" fromTop="15" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:ListyModel.cs" caret="856" fromTop="33" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="1857" fromTop="27" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/d:Domain/f:ListyList.cs" caret="904" fromTop="34" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="808" fromTop="17" />
   </RecentFiles>
   <RecentEdits>
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="925" fromTop="15" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="932" fromTop="15" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="629" fromTop="14" />
-    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="807" fromTop="17" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:MongoDbSettings.cs" caret="1245" fromTop="39" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/f:MongoDbSettings.cs" caret="437" fromTop="18" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:start.htm" caret="232" fromTop="6" />
@@ -19,5 +20,15 @@
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Controllers/f:ListsController.cs" caret="0" fromTop="0" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Controllers/f:ListsController.cs" caret="218" fromTop="12" />
     <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Controllers/f:ListsController.cs" caret="171" fromTop="9" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="5103" fromTop="46" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="5018" fromTop="9" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="2738" fromTop="24" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="2448" fromTop="18" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="5484" fromTop="33" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="2563" fromTop="28" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Views/d:Lists/f:index.cshtml" caret="1684" fromTop="18" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/d:Models/d:Domain/f:ListyList.cs" caret="852" fromTop="30" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="1830" fromTop="37" />
+    <File id="8892A405-DA7D-441C-8F73-AB083EC996F7/f:Web.config" caret="808" fromTop="17" />
   </RecentEdits>
 </RecentFiles>
