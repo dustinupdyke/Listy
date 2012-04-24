@@ -2,23 +2,38 @@ require 'sinatra'
 require 'json'
 require 'mongo'
 
+get '/' do
+  erb :index, :layout => :application
+end
+
 get '/lists' do
   erb :index, :layout => :application
 end
 
+get '/lists/:list_id' do |list_id|
+  erb :index, :layout => :application
+end
+
+get '/lists/read/:list_id' do |list_id|
+  list_id
+end
+
 post '/lists/create' do
   payload = JSON.parse(request.body.read)
-  puts payload
-#  con= Mongo::Connection.new
-#  db= con['listy'] 
-#  lists = db['lists']
-#  lists.save(payload)
+  con= Mongo::Connection.new
+  db= con['listy'] 
+  lists = db['lists']
+  lists.save(payload)
 end
 
-get '/index.htm' do
-  File.read('index.htm')
+
+class ListyList
+	attr_accessor :Id, :UserId, :Items
+  def initialize
+    self.Items = []
+  end
 end
 
-get '/jquery.jqtubeutil.min.js' do
-  File.read('jquery.jqtubeutil.min.js')
+class ListyItem
+  attr_accessor :Id, :Artist, :Song, :VideoUrl, :ThumbUrl, :Comments
 end
